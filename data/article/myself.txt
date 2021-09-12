@@ -1,0 +1,2 @@
+ My name is Emma , I come from China, the province of shangdong. I use the web called imooc to learn django.
+ This is my first Django project. I hope i can make great improvement in this field.

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectResources">
+    <resource url="http://www.springframework.org/schema/beans" location="" />
+    <resource url="http://www.springframework.org/schema/beans/spring-beans.xsd" location="" />
+    <resource url="http://www.springframework.org/schema/c" location="" />
+    <resource url="http://www.springframework.org/schema/p" location="" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="Python 3.6 (django_introduction)" project-jdk-type="Python SDK" />
+</project>

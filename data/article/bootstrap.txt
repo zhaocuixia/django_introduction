@@ -1,0 +1,4 @@
+Bootstrap是前端开发中比较受欢迎的框架，简洁且灵活。
+它基于HTML、CSS和JavaScript，HTML定义页面元素，CSS定义页面布局，而JavaScript负责页面元素的响应。
+Bootstrap将HTML、CSS和JavaScript封装成一个个功能组件，用起来简单，粗暴。
+
