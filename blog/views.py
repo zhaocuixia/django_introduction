@@ -19,7 +19,7 @@ def article_content(request):
                 'content: %s, article_id: %s, publish_date: %s' % (title,
                                                                    brief_content,
                                                                    content,
-                                                                   article,
+                                                                   article_id,
                                                                    publish_date
 
     )
@@ -92,3 +92,59 @@ def get_detail_page(request, article_id):
                       'next_article': next_article
                   }
                   )
+
+
+# 接收请求数据
+def search(request):
+    request.encoding='utf-8'
+    if 'q' in request.GET and request.GET['q']:
+        message = request.GET['q']
+        all_article = Article.objects.filter(title__contains=message)
+    else:
+        all_article = Article.objects.all()
+
+    page = request.GET.get('page')  # 获取url 参数
+
+    if page:
+        page = int(page)
+    else:
+        page = 1
+    top5article_list = Article.objects.order_by('-publish_date')[:5]
+    paginator = Paginator(all_article, 3)
+    page_article_list = paginator.page(page)
+    page_num = paginator.num_pages
+    if page_article_list.has_next():
+        next_page = page +1
+    else:
+        next_page = page
+    if page_article_list.has_previous():
+        previous_page = page - 1
+    else:
+        previous_page = page
+
+    return render(request, 'blog/index1.html',
+                  {
+                      'article_list': page_article_list,
+                      'top5article_list': top5article_list,
+                      'page_num': range(1, page_num + 1),
+                      'curr_page': page,
+                      'next_page': next_page,
+                      'previous_page': previous_page
+
+                  }
+                  )
+# 局部更新实验，加法功能
+
+def partindex(request):
+    return render(request, './add.html')
+
+def add(request):
+    a = request.GET['a']
+    b = request.GET['b']
+    if request.is_ajax():
+        ajax_string = 'ajax request:'
+    else:
+        ajax_string = 'not ajax request:'
+    c = int(a) + int(b)
+    r = HttpResponse(ajax_string + str(c))
+    return r
