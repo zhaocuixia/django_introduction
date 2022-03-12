@@ -9,20 +9,28 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<div>
+    <button type="button" class="btn btn-default"><a href="/blog/index">返回首页</a></button>
+</div>
 <div class = "container body-main">
 
       <div >
-          <h1>文章标题</h1>
+          <h1>{{curr_article.title}}</h1>
+          {% for section in section_list %}
           <p>
-              Django的一个强大的功能是它的对象关系映射Object-Relational Mapping（ORM），
-              它允许你就像使用 SQL一样去和你的数据库交互，本课程将以Django官方文档为依据，
-              通过开发讲师、课程、学生、助教四个模型类，给大家完整透彻的讲解Django ORM知识体系，
-              为更高级的开发打下坚实基础。课程源码：https://github.com/liaogx/imooc
+              {{section}}
           </p>
-
+          {% endfor %}
       </div>
 
+</div>
+<div>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li><a href="/blog/detail/{{previous_article.article_id}}">上一篇{{previous_article.title}}</a></li>
+            <li><a href="/blog/detail/{{next_article.article_id}}">下一篇{{next_article.title}}</a></li>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>
