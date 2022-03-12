@@ -6,4 +6,7 @@ urlpatterns = [
     path('content', blog.views.article_content),
     path('index', blog.views.get_index_page),
     path('detail/<int:article_id>', blog.views.get_detail_page),
+    path('index/search', blog.views.search),
+    path('partindex/', blog.views.partindex),
+    path('add/', blog.views.add),
     ]
